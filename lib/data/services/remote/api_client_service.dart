@@ -22,4 +22,39 @@ class ApiClientService {
 
     _dio.interceptors.addAll([RetryInterceptor(dio: _dio, retries: 3)]);
   }
+
+  Future<Response> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    return await _dio.get(path, queryParameters: queryParameters);
+  }
+
+  Future<Response> post(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? data,
+  }) async {
+    return await _dio.post(path, queryParameters: queryParameters, data: data);
+  }
+
+  Future<Response> put(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? data,
+  }) async {
+    return await _dio.put(path, queryParameters: queryParameters, data: data);
+  }
+
+  Future<Response> delete(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? data,
+  }) async {
+    return await _dio.delete(
+      path,
+      queryParameters: queryParameters,
+      data: data,
+    );
+  }
 }
