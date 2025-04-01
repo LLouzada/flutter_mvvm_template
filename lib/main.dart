@@ -3,12 +3,18 @@ import 'package:flutter_mvvm_template/config/app_dependencies.dart';
 import 'package:flutter_mvvm_template/ui/core/theme/app_theme.dart';
 import 'package:flutter_mvvm_template/ui/home/widgets/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Teste
+  await bootApp();
+
   runApp(MultiProvider(providers: providers, child: MainApp()));
+}
+
+Future<void> bootApp() async {
+  await dotenv.load();
 }
 
 class MainApp extends StatelessWidget {
