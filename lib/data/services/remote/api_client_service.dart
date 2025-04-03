@@ -30,8 +30,9 @@ class ApiClientService {
   Future<Response> get(
     String path, {
     Map<String, dynamic>? queryParameters,
+    bool isAuth = true,
   }) async {
-    _setHeaders();
+    isAuth ? _setHeaders() : null;
     return await _dio.get(path, queryParameters: queryParameters);
   }
 
@@ -39,8 +40,9 @@ class ApiClientService {
     String path, {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
+    bool isAuth = true,
   }) async {
-    _setHeaders();
+    isAuth ? _setHeaders() : null;
     return await _dio.post(path, queryParameters: queryParameters, data: data);
   }
 
@@ -48,8 +50,9 @@ class ApiClientService {
     String path, {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
+    bool isAuth = true,
   }) async {
-    _setHeaders();
+    isAuth ? _setHeaders() : null;
     return await _dio.put(path, queryParameters: queryParameters, data: data);
   }
 
@@ -57,8 +60,9 @@ class ApiClientService {
     String path, {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
+    bool isAuth = true,
   }) async {
-    _setHeaders();
+    isAuth ? _setHeaders() : null;
     return await _dio.delete(
       path,
       queryParameters: queryParameters,
