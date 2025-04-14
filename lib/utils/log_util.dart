@@ -4,16 +4,16 @@ import 'package:logger/logger.dart';
 ///
 /// This logger supports both detailed and simple log outputs by encapsulating
 /// two [Logger] instances with different configurations.
-class AppLogger {
+class LogUtil {
   late Logger _traceLogger;
   late Logger _simpleLogger;
-  static final AppLogger _instance = AppLogger._internals();
+  static final LogUtil _instance = LogUtil._internals();
 
   /// Private constructor that initializes logger instances.
   ///
   /// [_simpleLogger] is configured with a shorter stack trace, while
   /// [_traceLogger] provides a more detailed output.
-  AppLogger._internals() {
+  LogUtil._internals() {
     // Displays the last method in the stack trace. Start from the 2nd index
     // to exclude AppLogger's own methods.
     _simpleLogger = Logger(
@@ -25,8 +25,8 @@ class AppLogger {
     );
   }
 
-  /// Returns the singleton instance of [AppLogger].
-  static AppLogger get instance => _instance;
+  /// Returns the singleton instance of [LogUtil].
+  static LogUtil get instance => _instance;
 
   /// log a message with the given [level].
   ///
